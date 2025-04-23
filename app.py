@@ -10,30 +10,6 @@ st.set_page_config(page_title="Image Sense ", page_icon='📸', layout="centered
 st.title("Image Sense 🌆")
 
 # Instruction to user about the model classes
-st.info("""
-This model recognizes **5 classes** only:
-- Dew
-- Forest
-- Glacier
-- Mountain
-- Plastic Bottles
-
-📌 Upload a clear image representing one of the above categories.
-""")
-
-st.markdown("""
-### ℹ️ Model Info:
-This image classifier supports only **5 classes**:
-- 🌱 Dew  
-- 🌳 Forest  
-- ❄️ Glacier  
-- 🏔️ Mountain  
-- 🧴 Plastic Bottles  
-
-Please upload an image representing one of the above for accurate prediction.
-""")
-
-
 st.code("""
 Supported Classes:
 1. Dew
@@ -45,10 +21,6 @@ Supported Classes:
 📌 Upload a clear image representing one of the above categories.
 
 """, language='markdown')
-
-
-st.caption("Note: This model only works with Dew, Forest, Glacier, Mountain, and Plastic Bottles.")
-
 
 uploaded_file = st.file_uploader(label="Upload your image")
 
