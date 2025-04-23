@@ -41,6 +41,9 @@ Supported Classes:
 3. Glacier
 4. Mountain
 5. Plastic Bottles
+
+📌 Upload a clear image representing one of the above categories.
+
 """, language='markdown')
 
 
