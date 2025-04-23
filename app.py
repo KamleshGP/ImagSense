@@ -21,6 +21,32 @@ This model recognizes **5 classes** only:
 📌 Upload a clear image representing one of the above categories.
 """)
 
+st.markdown("""
+### ℹ️ Model Info:
+This image classifier supports only **5 classes**:
+- 🌱 Dew  
+- 🌳 Forest  
+- ❄️ Glacier  
+- 🏔️ Mountain  
+- 🧴 Plastic Bottles  
+
+Please upload an image representing one of the above for accurate prediction.
+""")
+
+
+st.code("""
+Supported Classes:
+1. Dew
+2. Forest
+3. Glacier
+4. Mountain
+5. Plastic Bottles
+""", language='markdown')
+
+
+st.caption("Note: This model only works with Dew, Forest, Glacier, Mountain, and Plastic Bottles.")
+
+
 uploaded_file = st.file_uploader(label="Upload your image")
 
 model = load_model('image_reco_vgg.keras')
