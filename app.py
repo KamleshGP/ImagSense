@@ -7,8 +7,8 @@ import pandas as pd
 from PIL import Image
 
 
-st.set_page_config(page_title="Image Recognition ", page_icon='📸', layout="centered", initial_sidebar_state="auto", menu_items=None)
-st.title("Image recognition model 🌆")
+st.set_page_config(page_title="Image Sense ", page_icon='📸', layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.title("Image Sense 🌆")
 
 uploaded_file = st.file_uploader(label="Upload your image")
 
