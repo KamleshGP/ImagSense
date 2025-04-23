@@ -22,7 +22,7 @@ Supported Classes:
 
 """, language='markdown')
 
-uploaded_file = st.file_uploader(label="Upload your image")
+uploaded_file = st.file_uploader(label="Upload your image", type=["jpg", "jpeg", "png"])
 
 model = load_model('image_reco_vgg.keras')
 
