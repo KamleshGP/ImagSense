@@ -6,28 +6,38 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 
-
 st.set_page_config(page_title="Image Sense ", page_icon='📸', layout="centered", initial_sidebar_state="auto", menu_items=None)
 st.title("Image Sense 🌆")
+
+# Instruction to user about the model classes
+st.info("""
+This model recognizes **5 classes** only:
+- Dew
+- Forest
+- Glacier
+- Mountain
+- Plastic Bottles
+
+📌 Upload a clear image representing one of the above categories.
+""")
 
 uploaded_file = st.file_uploader(label="Upload your image")
 
 model = load_model('image_reco_vgg.keras')
 
 def get_img_input(path):
-  img = tf.keras.preprocessing.image.load_img(path,target_size = (224,224))
-  img_array = tf.keras.preprocessing.image.img_to_array(img)
-  img_array = tf.expand_dims(img_array,0)
-  return img_array
+    img = tf.keras.preprocessing.image.load_img(path, target_size=(224, 224))
+    img_array = tf.keras.preprocessing.image.img_to_array(img)
+    img_array = tf.expand_dims(img_array, 0)
+    return img_array
 
 if uploaded_file:
-
     image = Image.open(uploaded_file)
+    image.thumbnail((300, 300))  # Resize for consistent display
     st.image(image, caption='Uploaded Image', use_container_width=False)
 
-    button =st.button("Classify")
+    button = st.button("Classify")
     if button:
-        
         img = get_img_input(uploaded_file)
         result = model.predict(img)
         y_pred2 = pd.DataFrame(np.argmax(result, axis=1))
@@ -45,6 +55,3 @@ if uploaded_file:
             st.subheader("Predicted Class: Mountain")
         elif y_pred == 4:
             st.subheader("Predicted Class: Plastic Bottles")
-
-
-
